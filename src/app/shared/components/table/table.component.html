@@ -1,0 +1,12 @@
+<section class="lg-table">
+  <table>
+    <thead class="lg-table-head">
+      <th *ngFor="let heading of headers">
+        {{ heading }}
+      </th>
+    </thead>
+    <tbody class="lg-table-body">
+      <ng-content select="tr"></ng-content>
+    </tbody>
+  </table>
+</section>
