@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'utilities15';
 
-  headers = ['id', 'nombre', 'apellidos', 'fecha', 'total']
+  headers = ['id', 'nombre', 'apellidos', 'fecha', 'total'];
   dataOfHeaders:{id: string, name: string, lastName: string, date: string, total: string}[]  = [
     {id: '1', name: 'Juan', lastName: 'Perez', date: '2021-01-01', total: '100'},
     {id: '2', name: 'Maria', lastName: 'Gonzalez', date: '2021-01-02', total: '200'},

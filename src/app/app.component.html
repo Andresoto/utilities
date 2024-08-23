@@ -1,34 +1,35 @@
-<app-table [headers]="headers">
-  <tr *ngFor="let owner of dataOfHeaders">
+<app-table [headers]="headers" [data]="dataOfHeaders">
+  <ng-template #rows let-row>
     <td>
       <label>{{headers[0]}}</label>
       <div>
-        {{ owner?.id}}
+        {{ row?.id}}
       </div>
     </td>
     <td>
       <label>{{headers[1]}}</label>
       <div>
-        {{ owner?.name| titlecase }}
+        {{ row?.name| titlecase }}
       </div>
     </td>
     <td>
       <label>{{headers[2]}}</label>
       <div>
-        {{ owner?.lastName }}
+        {{ row?.lastName }}
       </div>
     </td>
     <td>
       <label>{{headers[3]}}</label>
       <div>
-        {{ owner?.date | date : 'yyyy/MM/dd'  }}
+        {{ row?.date | date : 'dd/MM/yyyy'  }}
       </div>
     </td>
     <td>
       <label>{{headers[4]}}</label>
       <div>
-        {{ owner?.total | currency }}
+        {{ row?.total | currency }}
       </div>
     </td>
-  </tr>
+  </ng-template>
+
 </app-table>

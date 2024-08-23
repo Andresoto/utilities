@@ -1,16 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --accent: hsl(21, 98%, 62%);
-    --accent-light: hsl(22, 100%, 93%);
-    --accent-hover: hsl(21, 100%, 83%);
-    --secondary: hsl(222, 11%, 23%);
-    --secondary-light: hsl(220, 13%, 82%);
-    --secondary-hover: hsl(220, 10%, 71%);
-    --tertiary: hsl(193, 64%, 29%);
-    --tertiary-light: hsl(193, 100%, 83%);
-    --tertiary-hover: hsl(193, 57%, 66%);
-    --background: #fff;
-    --text-color: #343841;
-    --error: #cf2335;
-    --table-layout-color: hsl(222, 11%, 23%);
-  }
+  --accent: hsl(21, 98%, 62%);
+  --accent-light: hsl(22, 100%, 93%);
+  --accent-hover: hsl(21, 100%, 83%);
+  --secondary: hsl(222, 11%, 23%);
+  --secondary-light: hsl(220, 13%, 82%);
+  --secondary-hover: hsl(220, 10%, 71%);
+  --tertiary: hsl(193, 64%, 29%);
+  --tertiary-light: hsl(193, 100%, 83%);
+  --tertiary-hover: hsl(193, 57%, 66%);
+  --background: #fff;
+  --text-color: #343841;
+  --error: #cf2335;
+  --table-layout-color: hsl(222, 11%, 23%);
+}
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

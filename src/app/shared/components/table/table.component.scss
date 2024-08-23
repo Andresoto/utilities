@@ -88,6 +88,7 @@
       font-size: 14px;
       text-align: center;
       padding: 0 8px;
+      border-left: 1px solid #ccc;
     }
     .lg-table-head th:first-child {
       border-top-left-radius: 8px;
@@ -105,6 +106,7 @@
   
     .lg-table-body tr td {
       display: table-cell;
+      border-left: 1px solid #ccc;
     }
   
     .lg-table-body tr td > label {
@@ -112,7 +114,7 @@
     }
   
     .lg-table-body tr td > div {
-      text-align: center;
+      text-align: start;
       border-bottom: none;
     }
     .lg-table-body tr:nth-child(even) td > div {

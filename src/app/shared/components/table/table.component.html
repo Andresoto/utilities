@@ -1,12 +1,14 @@
 <section class="lg-table">
-  <table>
+  <table matSort (matSortChange)="sortData($event)">
     <thead class="lg-table-head">
-      <th *ngFor="let heading of headers">
-        {{ heading }}
+      <th [mat-sort-header]="namesData[i]" *ngFor="let heading of headers; let i = index">
+        {{ heading | titlecase }}
       </th>
     </thead>
     <tbody class="lg-table-body">
-      <ng-content select="tr"></ng-content>
+      <tr *ngFor="let row of sortedData">
+        <ng-container *ngTemplateOutlet="rows; context: { $implicit: row }"></ng-container>
+      </tr>
     </tbody>
   </table>
 </section>
