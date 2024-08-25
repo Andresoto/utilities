@@ -1,11 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { Sort } from '@angular/material/sort';
+import { MatSortModule, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [CommonModule, MatSortModule]
 })
 export class TableComponent implements OnInit {
 
