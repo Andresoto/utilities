@@ -1,4 +1,4 @@
-<section class="lg-table">
+<!-- <section class="lg-table">
   <table matSort (matSortChange)="sortData($event)">
     <thead class="lg-table-head">
       <th [mat-sort-header]="namesData[i]" *ngFor="let heading of headers; let i = index">
@@ -11,4 +11,50 @@
       </tr>
     </tbody>
   </table>
-</section>
+</section> -->
+
+
+<div style="margin-top: 1rem; display: flex; justify-content: center;">
+  <div style="width: 90%;">
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      
+
+      <!-- <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+      </ng-container> -->
+
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ column | titlecase }} </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <ng-container
+            *ngTemplateOutlet="cellTemplate; context: { element: element, column: column }">
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

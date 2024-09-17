@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './shared/components/table/table.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TableComponent } from './shared/components/table/table.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TableComponent
+    TableComponent,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

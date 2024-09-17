@@ -1,4 +1,4 @@
-<app-table [headers]="headers" [data]="dataOfHeaders">
+<!-- <app-table [headers]="headers" [data]="dataOfHeaders">
   <ng-template #rows let-row>
     <td>
       <label>{{headers[0]}}</label>
@@ -32,4 +32,27 @@
     </td>
   </ng-template>
 
+</app-table> -->
+
+<app-table [headers]="headers" [data]="dataOfHeaders" [displayedColumns]="displayedColumns">
+  <ng-template #cellTemplate let-element="element" let-column="column">
+    <ng-container [ngSwitch]="column">
+
+      <ng-container *ngSwitchCase="'total'">💰 {{ element[column] | currency: 'COL' }}</ng-container>
+
+      <ng-container *ngSwitchCase="'date'">{{ element[column] | date : 'dd/MM/yyyy' }}</ng-container>
+
+      <ng-container *ngSwitchCase="'lastName'">
+        <div style="width: 100%; height: 100%; position: relative;">
+          <span style="width: 100%; height: 5px; background-color: rgb(15, 36, 105); display: inline-block; position: absolute; top: 50%; transform: translateY(-50%);"></span>
+          <span style="width: 15px; height: 15px; background-color: rgb(15, 36, 105); display: inline-block; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%); border-radius: 50%;"></span>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'acciones'"><button (click)="show(element)">editar</button></ng-container>
+
+      <ng-container *ngSwitchDefault>{{ element[column] }}</ng-container>
+
+    </ng-container>
+  </ng-template>
 </app-table>

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { MatSortModule, Sort } from '@angular/material/sort';
+import { Component, ContentChild, Input, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -8,24 +9,39 @@ import { MatSortModule, Sort } from '@angular/material/sort';
   styleUrls: ['./table.component.scss'],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [CommonModule, MatSortModule]
+  imports: [CommonModule, MatSortModule, MatTableModule]
 })
 export class TableComponent implements OnInit {
 
   @Input() headers: string[] = [];
   @Input() data: any[] = [];
+  @Input() displayedColumns: string[] = [];
 
   @ContentChild('rows') rows!: TemplateRef<any> | null;
+  @ContentChild('cellTemplate', { static: true }) cellTemplate!: TemplateRef<any>;
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  dataSource!: MatTableDataSource<any>;
 
   sortedData!: any[];
   namesData: any[] = []
+
+  // dataSource!: any[];
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.sortedData = this.data.slice();
-    this.namesData = Object.keys(this.data[0]);
+    // this.dataSource = this.data;
+    console.log(this.dataSource);
+    this.dataSource = new MatTableDataSource(this.data);
+    // this.sortedData = this.data.slice();
+    // this.namesData = Object.keys(this.data[0]);
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
   sortData(sort: Sort) {
